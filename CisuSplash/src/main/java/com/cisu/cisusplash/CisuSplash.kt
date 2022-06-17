@@ -21,13 +21,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CisuSplash {
-    var bg = Black
-    var listOfTint = listOf(YellowLight, Yellow, YellowDarker)
-    var logo = R.drawable.ic_explore
-    var iconShadow = R.drawable.ic_explore
-    var defaultSize = 64.dp
-    var zoomedSize = 100.dp
-    var isShadowStill = true
+    private var bg = Black
+    private var listOfTint = listOf(YellowLight, Yellow, YellowDarker)
+    private var logo = R.drawable.ic_explore
+    private var iconShadow = R.drawable.ic_explore
+    private var defaultSize = 64.dp
+    private var zoomedSize = 100.dp
+    private var isShadowStill = true
 
     fun setBackground(color: Color) = apply {
         this.bg = color
