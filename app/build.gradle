@@ -60,5 +60,5 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     //local path
-    implementation project(path: ":CisuSplash")
+    implementation 'com.github.fahmirumagutawan:Cisu-Jetpack-Component:1.0'
 }
