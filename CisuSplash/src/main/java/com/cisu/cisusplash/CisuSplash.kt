@@ -26,7 +26,8 @@ import kotlinx.coroutines.launch
 class CisuSplash {
     var bg = Black
     var listOfTint = listOf(Green, Yellow, Blue, Color.Transparent)
-    var logo = R.drawable.ic_baseline_cake_24
+    var logo = R.drawable.ic_compass
+    var iconShadow = R.drawable.ic_compass
     var defaultSize = 64.dp
     var zoomedSize = 100.dp
     var isShadowStill = true
@@ -39,9 +40,9 @@ class CisuSplash {
         //Why we set condition like this?
         //Because if shadow setted to "disappear", then all of it will disappear before last shadow has animated
         //So we have to add a dummy shadow, as u see it's transparent color
-        if(isShadowStill){
+        if (isShadowStill) {
             this.listOfTint = listOfTint
-        }else{
+        } else {
             this.listOfTint = listOfTint + Color.Transparent
         }
     }
@@ -58,8 +59,12 @@ class CisuSplash {
         zoomedSize = size
     }
 
-    fun setShadowStill(isShadowStill:Boolean) = apply {
+    fun setShadowStill(isShadowStill: Boolean) = apply {
         this.isShadowStill = isShadowStill
+    }
+
+    fun setShadowIcon(iconId: Int) {
+        iconShadow = iconId
     }
 
     @SuppressLint(
@@ -114,7 +119,7 @@ class CisuSplash {
                 AnimatedVisibility(visible = listOfVisible.get(i)) {
                     Icon(
                         modifier = Modifier.size(animateDpAsState(targetValue = listOfDp.get(i)).value),
-                        painter = painterResource(id = logo),
+                        painter = painterResource(id = iconShadow),
                         contentDescription = "My ICON",
                         tint = listOfTint.get(i)
                     )
