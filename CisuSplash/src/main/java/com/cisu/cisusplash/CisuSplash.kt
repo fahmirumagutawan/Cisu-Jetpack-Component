@@ -60,7 +60,7 @@ class CisuSplash {
         this.isShadowStill = isShadowStill
     }
 
-    fun setShadowIcon(iconId: Int) {
+    fun setShadowIcon(iconId: Int) = apply {
         iconShadow = iconId
     }
 
