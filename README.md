@@ -30,7 +30,7 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     ```gradle
     allprojects {
 	    repositories {
-		    ...
+		    ..
 		    maven { url "https://jitpack.io" }
 	    }
     }
@@ -44,7 +44,7 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     dependencyResolutionManagement {
         repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
         repositories {
-            ...
+            ..
             maven { url 'https://jitpack.io' }
         }
     }
@@ -53,12 +53,12 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     
 ### 2. Setup Cisu to Your Dependency
 
--   After succesfully include Jitpack, right now u able to implement `Cisu` in your     project.
+-   After succesfully including Jitpack, right now you able to implement `Cisu` in your project.
 
     Add this to your `build.gradle` (app scope) :
     ```gradle
     dependencies {
-        ...
+        ..
         implementation 'com.github.fahmirumagutawan:Cisu-Jetpack-Component:$cisu_version'
     }
     ```
