@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -70,7 +71,7 @@ class CisuSplash {
     @Composable
     fun build(scope: CoroutineScope) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().background(color = bg),
             contentAlignment = Alignment.Center
         ) {
             //Have to instantitate individually, so all of shadows has its own Dp & Visibility state.
