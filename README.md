@@ -87,5 +87,5 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 | 4 | `setTints(listOfTint:List<Color>)` |  This function is used to set your shadow color. Shadow will automatically appear as much as this tint size  |  `listOf(Color.Yellow, Color.Yellow, Color.Yellow)` |
 | 5 | `setDefaultSize(size:Dp)` | This function is used to set the size of your logo, and all of your shadow before being animated | `40.dp` |
 | 6 | `setZoomedSize(size:Dp)` | Actually our splash is working with animating all of the shadows. So, this function will set zoomed size of your shadow specifically | `128.dp` |
-| 7 | `setShadowStill(isShadowStill:Boolean)` | In default, your shadow will not going anywhere after animated. But u can set it to disappear after by using this function |  `true` |
+| 7 | `setShadowStill(isShadowStill:Boolean)` | In default, your shadow will not going anywhere after animated. But u can set it to disappeared after, by using this function |  `true` |
 | 8 | `build(scope:CoroutineScope)` | This function should be called last. This function is used to return all of your customization before. Even if you were not customize anything, you still have to call this function | `rememberCoroutineScope()` |
