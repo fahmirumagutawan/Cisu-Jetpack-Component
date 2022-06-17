@@ -15,19 +15,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.cisu.cisusplash.util.Black
-import com.cisu.cisusplash.util.Blue
-import com.cisu.cisusplash.util.Green
-import com.cisu.cisusplash.util.Yellow
+import com.cisu.cisusplash.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CisuSplash {
     var bg = Black
-    var listOfTint = listOf(Green, Yellow, Blue, Color.Transparent)
-    var logo = R.drawable.ic_compass
-    var iconShadow = R.drawable.ic_compass
+    var listOfTint = listOf(YellowLight, Yellow, YellowDarker)
+    var logo = R.drawable.ic_explore
+    var iconShadow = R.drawable.ic_explore
     var defaultSize = 64.dp
     var zoomedSize = 100.dp
     var isShadowStill = true

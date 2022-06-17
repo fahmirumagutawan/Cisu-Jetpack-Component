@@ -25,8 +25,7 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     CisuSplash()
-                        .setZoomedSize(95.dp)
-                        .setTints(listOf(Color.Cyan, Color.Red, Color.Blue))
+                        .setZoomedSize(120.dp)
                         .build(rememberCoroutineScope())
 
                 }
