@@ -36,5 +36,20 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     }
     ```
 
+-   For gradle version 7 or latest
+
+    Add this in your root `setting.gradle` file :
+    
+    ```gradle
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+    
+    ```
+
 
 # Documentation
