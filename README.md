@@ -28,11 +28,12 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     Add this in your root  `build.gradle`  file (project scope) :
     ```
     allprojects {
-	repositories {
-		...
-		maven { url "https://jitpack.io" }
-	}
-	} 
+	    repositories {
+		    ...
+		    maven { url "https://jitpack.io" }
+	    }
+    }
+    ```
 
 
 # Documentation
