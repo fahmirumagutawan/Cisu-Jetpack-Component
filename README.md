@@ -65,3 +65,13 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     > You can find `cisu_version` on Jitpack Badge above, or on our release tag.
 
 # Documentation
+
+### 1. Cisu Splash ✨
+-   #### Simple Implementation
+```kotlin
+    val splash = CisuSplash()
+                    .(IMPLEMENT SOME COMMAND)
+                    .(IMPLEMENT SOME COMMAND)
+    
+    val mySplash = splash.build(myCoroutineScope)
+```
