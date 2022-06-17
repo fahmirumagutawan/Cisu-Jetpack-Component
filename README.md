@@ -32,7 +32,7 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 		...
 		maven { url "https://jitpack.io" }
 	}
-  } ```
+	} 
 
 
 # Documentation
