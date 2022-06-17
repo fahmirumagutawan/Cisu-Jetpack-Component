@@ -26,7 +26,8 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 -   For old version of gradle (before arctic fox update)
     
     Add this in your root  `build.gradle`  file (project scope) :
-    ```
+    
+    ```gradle
     allprojects {
 	    repositories {
 		    ...
