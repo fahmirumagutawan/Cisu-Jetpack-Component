@@ -94,7 +94,7 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 | 7 | `setShadowStill(isShadowStill:Boolean)` | In default, your shadow will not going anywhere after being animated. But you can set it to be disappeared after its finished its animation, by using this function |  `true` |
 | 8 | `build(scope:CoroutineScope)` | This function should be called last. This function is used to return all of your customization before. Even if you were not customizing anything, you still have to call this function | `rememberCoroutineScope()` |
 
-# Contant Me
+# Contact Me
 If you want to discuss about business, or maybe have a critic and advice. Feel free to be messaged everytime-everywhere. 
 
 -	#### 👨🏽‍💻 Email = `fahmigutawan@gmail.com`
