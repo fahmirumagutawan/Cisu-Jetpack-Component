@@ -17,7 +17,7 @@
 <p align="center">Technologies we are using now</p>
 </p>
 
-`Cisu Jetpack-Component` is a library that able to use by Android (Jetpack Compose) Developer to made its developing easier. Right now we are targeting only Jetpack Compose, but not impossible if someday we release for other developing environment.
+`Cisu Jetpack-Component` is a library that can be used by Android (Jetpack Compose) Developer to made its developing easier. Right now we are targeting only Jetpack Compose, but not impossible if someday we release for other developing environment.
 
 # Preparation
 Before you able to accessing `Cisu`, you have to know that we are using `Jitpack` to make this library public. So you have to include Jitpack inside your project first.
