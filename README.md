@@ -20,6 +20,19 @@
 `Cisu Jetpack-Component` is a library that able to used by Android (Jetpack Compose) Developer to made its developing easier. Right now we are targeting only Jetpack Compose, but not impossible if someday we release for other developing environment.
 
 # Preparation
-Before you able access `Cisu`
+Before you able to accessing `Cisu`, you have to know that we are using `Jitpack` to make this library public. So you have to include Jitpack inside your project first.
+
+### Setup for Jitpack
+-   For old version of gradle (before arctic fox update)
+    
+    Add this in your root  `build.gradle`  file (project scope) :
+    ```
+    allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
+	}
+  } ```
+
 
 # Documentation
