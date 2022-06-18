@@ -5,9 +5,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -29,6 +27,8 @@ class CisuSplash {
     private var defaultSize = 64.dp
     private var zoomedSize = 100.dp
     private var isShadowStill = true
+    private lateinit var composeAbove: @Composable Unit
+    private lateinit var composeBelow: @Composable Unit
 
     fun setBackground(color: Color) = apply {
         this.bg = color
@@ -57,12 +57,20 @@ class CisuSplash {
         zoomedSize = size
     }
 
-    fun setShadowStill(isShadowStill: Boolean) = apply {
-        this.isShadowStill = isShadowStill
-    }
+//    fun setShadowStill(isShadowStill: Boolean) = apply {
+//        this.isShadowStill = isShadowStill
+//    }
 
     fun setShadowIcon(iconId: Int) = apply {
         iconShadow = iconId
+    }
+
+    fun addComposeAbove(compose: @Composable Unit) = apply {
+        composeAbove = compose
+    }
+
+    fun addComposeBelow(compose: @Composable Unit) = apply {
+        composeBelow = compose
     }
 
     @SuppressLint(
@@ -71,66 +79,81 @@ class CisuSplash {
     @Composable
     fun build(scope: CoroutineScope) {
         Box(
-            modifier = Modifier.fillMaxSize().background(color = bg),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = bg),
             contentAlignment = Alignment.Center
         ) {
-            //Have to instantitate individually, so all of shadows has its own Dp & Visibility state.
-            val listOfDp = remember {
-                mutableStateListOf<Dp>()
-            }
-            val listOfVisible = remember {
-                mutableStateListOf<Boolean>()
-            }
+            Column(
+                verticalArrangement = Arrangement.SpaceAround,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                if (composeAbove != null) composeAbove
 
-            //isRendered var is used to make sure that all the component has to be rendered first before coroutine doing its job
-            //this variable will be changed if "rendering loop (coded below)" reach it's last iteration.
-            var isRendered by remember {
-                mutableStateOf(false)
-            }
-            for (i in 0..listOfTint.size - 1) {
-                listOfDp.add(defaultSize)
-                listOfVisible.add(true)
 
-            }
-
-            //We're here using coroutine, because we dont want to each shadow waiting to other shadow moving.
-            //So it's can move together by itself
-            scope.launch {
-                if (isRendered) {
-                    var zoomDiff = ((zoomedSize - defaultSize) / listOfTint.size)
-
-                    for (i in 0..listOfTint.size - 1) {
-                        delay(300)
-                        listOfDp.set(i, zoomedSize - ((i) * zoomDiff.value).dp)
+                Box(contentAlignment = Alignment.Center) {
+                    //Have to instantitate individually, so all of shadows has its own Dp & Visibility state.
+                    val listOfDp = remember {
+                        mutableStateListOf<Dp>()
+                    }
+                    val listOfVisible = remember {
+                        mutableStateListOf<Boolean>()
                     }
 
-                    //We didn't make this loop together above, because we don't want to each shadow disappear before next shadow appeared.
-                    //So it has to be disappear together after all shadow has animated
+                    //isRendered var is used to make sure that all the component has to be rendered first before coroutine doing its job
+                    //this variable will be changed if "rendering loop (coded below)" reach it's last iteration.
+                    var isRendered by remember {
+                        mutableStateOf(false)
+                    }
                     for (i in 0..listOfTint.size - 1) {
-                        listOfVisible.set(i, isShadowStill)
+                        listOfDp.add(defaultSize)
+                        listOfVisible.add(true)
+
+                    }
+
+                    //We're here using coroutine, because we dont want to each shadow waiting to other shadow moving.
+                    //So it's can move together by itself
+                    scope.launch {
+                        if (isRendered) {
+                            var zoomDiff = ((zoomedSize - defaultSize) / listOfTint.size)
+
+                            for (i in 0..listOfTint.size - 1) {
+                                delay(300)
+                                listOfDp.set(i, zoomedSize - ((i) * zoomDiff.value).dp)
+                            }
+
+                            //We didn't make this loop together above, because we don't want to each shadow disappear before next shadow appeared.
+                            //So it has to be disappear together after all shadow has animated
+                            for (i in 0..listOfTint.size - 1) {
+                                listOfVisible.set(i, isShadowStill)
+                            }
+                        }
+                    }
+
+                    //Rendering all the shadow, include the IconImage itself
+                    for (i in 0..listOfTint.size - 1) {
+                        //AnimatedVisibility(visible = listOfVisible.get(i)) {
+                        Icon(
+                            modifier = Modifier.size(animateDpAsState(targetValue = listOfDp.get(i)).value),
+                            painter = painterResource(id = iconShadow),
+                            contentDescription = "My ICON",
+                            tint = listOfTint.get(i)
+                        )
+                        //}
+
+                        if (i == listOfTint.size - 1) {
+                            Image(
+                                modifier = Modifier.size(defaultSize),
+                                painter = painterResource(id = logo),
+                                contentDescription = "My Logo"
+                            )
+                            isRendered = true
+                        }
                     }
                 }
-            }
 
-            //Rendering all the shadow, include the IconImage itself
-            for (i in 0..listOfTint.size - 1) {
-                AnimatedVisibility(visible = listOfVisible.get(i)) {
-                    Icon(
-                        modifier = Modifier.size(animateDpAsState(targetValue = listOfDp.get(i)).value),
-                        painter = painterResource(id = iconShadow),
-                        contentDescription = "My ICON",
-                        tint = listOfTint.get(i)
-                    )
-                }
 
-                if (i == listOfTint.size - 1) {
-                    Image(
-                        modifier = Modifier.size(defaultSize),
-                        painter = painterResource(id = logo),
-                        contentDescription = "My Logo"
-                    )
-                    isRendered = true
-                }
+                if (composeBelow != null) composeBelow
             }
 
         }
