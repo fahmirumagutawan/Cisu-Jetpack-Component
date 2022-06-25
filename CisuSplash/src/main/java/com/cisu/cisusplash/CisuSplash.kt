@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.Unspecified
 import androidx.compose.ui.res.painterResource
@@ -23,14 +24,18 @@ import kotlinx.coroutines.launch
 
 class CisuSplash {
     private var bg = Unspecified
-    private var listOfTint = listOf(YellowLight, Yellow, YellowDarker)
+    private var listOfTint = listOf(YellowLight, Yellow, YellowDarker, Transparent)
     private var logo = R.drawable.ic_explore
-    private var iconShadow = R.drawable.ic_explore
+    private var iconShadow = R.drawable.ic_shadow
     private var defaultSize = 64.dp
     private var zoomedSize = 100.dp
     private var isShadowStill = true
+    private var shadowDuration = 300L
     private var composeAbove: @Composable Unit? = null
     private var composeBelow: @Composable Unit? = null
+    private var isCircleBackground = false
+    private var insideCirclePadding = 0.dp
+    private var circleBackgroundColor = Gray
 
     fun setBackground(color: Color) = apply {
         this.bg = color
@@ -67,6 +72,16 @@ class CisuSplash {
         iconShadow = iconId
     }
 
+    fun isCircleBackround(isCircle: Boolean, contentPadding: Dp = 0.dp, color: Color = Gray) = apply {
+        isCircleBackground = isCircle
+        insideCirclePadding = contentPadding
+        circleBackgroundColor = color
+    }
+
+    fun setDurationPerShadow(duration:Long) = apply {
+        shadowDuration = duration
+    }
+
     fun addComposeAbove(compose: @Composable Unit) = apply {
         composeAbove = compose
     }
@@ -93,7 +108,9 @@ class CisuSplash {
                 if (composeAbove != null) composeAbove
 
 
-                Box(modifier = Modifier.fillMaxSize().background(bg), contentAlignment = Alignment.Center){
+                Box(modifier = Modifier
+                    .fillMaxSize()
+                    .background(bg), contentAlignment = Alignment.Center){
                     Box(contentAlignment = Alignment.Center) {
                         //Have to instantitate individually, so all of shadows has its own Dp & Visibility state.
                         val listOfDp = remember {
@@ -121,8 +138,8 @@ class CisuSplash {
                                 val zoomDiff = ((zoomedSize - defaultSize) / listOfTint.size)
 
                                 for (i in 0..listOfTint.size - 1) {
-                                    delay(300)
-                                    listOfDp.set(i, (zoomedSize - ((i) * zoomDiff.value).dp))
+                                    delay(shadowDuration)
+                                    listOfDp.set(i, (zoomedSize - ((i+1) * zoomDiff.value).dp))
                                 }
 
                                 //We didn't make this loop together above, because we don't want to each shadow disappear before next shadow appeared.
@@ -148,11 +165,19 @@ class CisuSplash {
                             }
                         }
                     }
-                    Image(
-                        modifier = Modifier.size(defaultSize),
-                        painter = painterResource(id = logo),
-                        contentDescription = "My Logo"
-                    )
+                    Box(modifier = Modifier.size(defaultSize), contentAlignment = Alignment.Center){
+                        Icon(
+                            modifier = Modifier.size(defaultSize),
+                            painter = painterResource(id = R.drawable.ic_shadow),
+                            contentDescription = "My ICON",
+                            tint = circleBackgroundColor
+                        )
+                        Image(
+                            modifier = Modifier.size(defaultSize),
+                            painter = painterResource(id = logo),
+                            contentDescription = "My Logo"
+                        )
+                    }
                 }
 
 
