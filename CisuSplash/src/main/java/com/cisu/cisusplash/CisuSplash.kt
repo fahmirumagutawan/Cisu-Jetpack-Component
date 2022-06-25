@@ -27,8 +27,8 @@ class CisuSplash {
     private var defaultSize = 64.dp
     private var zoomedSize = 100.dp
     private var isShadowStill = true
-    private lateinit var composeAbove: @Composable Unit
-    private lateinit var composeBelow: @Composable Unit
+    private var composeAbove: @Composable Unit? = null
+    private var composeBelow: @Composable Unit? = null
 
     fun setBackground(color: Color) = apply {
         this.bg = color
@@ -57,9 +57,9 @@ class CisuSplash {
         zoomedSize = size
     }
 
-//    fun setShadowStill(isShadowStill: Boolean) = apply {
-//        this.isShadowStill = isShadowStill
-//    }
+    fun setShadowStill(isShadowStill: Boolean) = apply {
+        this.isShadowStill = isShadowStill
+    }
 
     fun setShadowIcon(iconId: Int) = apply {
         iconShadow = iconId
@@ -115,7 +115,7 @@ class CisuSplash {
                     //So it's can move together by itself
                     scope.launch {
                         if (isRendered) {
-                            var zoomDiff = ((zoomedSize - defaultSize) / listOfTint.size)
+                            val zoomDiff = ((zoomedSize - defaultSize) / listOfTint.size)
 
                             for (i in 0..listOfTint.size - 1) {
                                 delay(300)
