@@ -1,4 +1,5 @@
 
+
 ![Release](https://jitpack.io/v/fahmirumagutawan/Cisu-Jetpack-Component.svg)
 # Welcome to Cisu Jetpack-Component
 <p align="Center">
@@ -92,7 +93,9 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 | 5 | `setDefaultSize(size:Dp)` | This function is used to set the size of your logo, and all of your shadow before being animated | `40.dp` |
 | 6 | `setZoomedSize(size:Dp)` | Actually our splash is working with animating all of the shadows. So, this function will set zoomed size of your shadow specifically | `128.dp` |
 | 7 | `setShadowStill(isShadowStill:Boolean)` | In default, your shadow will not going anywhere after being animated. But you can set it to be disappeared after its finished its animation, by using this function |  `true` |
-| 8 | `build(scope:CoroutineScope)` | This function should be called last. This function is used to return all of your customization before. Even if you were not customizing anything, you still have to call this function | `rememberCoroutineScope()` |
+| 8 | `setDurationPerShadow(duration:Long)` | To make this effect simple, we make the duration of each shadow static. So in this function, you able to change that static duration | `300L` |
+| 9 | `isCircleBackground(isCircle:Boolean, contentPadding:Dp, color:Color)` | For your information, this Splash Component is still kind of buggy. It is look good only if the shape is simetrical (Look at my GIF example above). So if you only have raw logo, and want to make it circle then use this function. But, I recommend you to also change the shadow icon shape to circle | `true, 0.dp, Gray` |
+| 10  | `build(scope:CoroutineScope)` | This function should be called last. This function is used to return all of your customization before. Even if you were not customizing anything, you still have to call this function | `rememberCoroutineScope()` |
 
 # Contact Me
 If you want to discuss about business, or maybe have a critic and advice. Feel free to be messaged everytime-everywhere. 
