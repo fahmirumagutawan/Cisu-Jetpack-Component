@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
                     CisuSplash()
                         .setDefaultSize(80.dp)
                         .setZoomedSize(240.dp)
+                        .isCircleBackround(true, contentPadding = 2.dp)
                         .build(rememberCoroutineScope())
 
                 }

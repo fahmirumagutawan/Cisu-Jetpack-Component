@@ -173,7 +173,7 @@ class CisuSplash {
                             tint = circleBackgroundColor
                         )
                         Image(
-                            modifier = Modifier.size(defaultSize),
+                            modifier = Modifier.size(defaultSize-(insideCirclePadding*2)),
                             painter = painterResource(id = logo),
                             contentDescription = "My Logo"
                         )
