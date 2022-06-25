@@ -25,7 +25,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     CisuSplash()
-                        .setZoomedSize(120.dp)
+                        .setDefaultSize(80.dp)
+                        .setZoomedSize(240.dp)
                         .build(rememberCoroutineScope())
 
                 }
