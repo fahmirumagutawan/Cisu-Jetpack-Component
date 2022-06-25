@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.Unspecified
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
@@ -40,9 +41,9 @@ class CisuSplash {
         //Because if shadow setted to "disappear", then all of it will disappear before last shadow has animated
         //So we have to add a dummy shadow, as u see it's transparent color
         if (isShadowStill) {
-            this.listOfTint = listOfTint
+            this.listOfTint = listOfTint + Transparent
         } else {
-            this.listOfTint = listOfTint + Color.Transparent
+            this.listOfTint = listOfTint + Transparent
         }
     }
 
