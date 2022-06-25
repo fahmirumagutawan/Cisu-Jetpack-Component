@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Unspecified
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -20,7 +21,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CisuSplash {
-    private var bg = Black
+    private var bg = Unspecified
     private var listOfTint = listOf(YellowLight, Yellow, YellowDarker)
     private var logo = R.drawable.ic_explore
     private var iconShadow = R.drawable.ic_explore
@@ -119,7 +120,7 @@ class CisuSplash {
 
                             for (i in 0..listOfTint.size - 1) {
                                 delay(300)
-                                listOfDp.set(i, zoomedSize - ((i) * zoomDiff.value).dp)
+                                listOfDp.set(i, (zoomedSize - ((i) * zoomDiff.value).dp))
                             }
 
                             //We didn't make this loop together above, because we don't want to each shadow disappear before next shadow appeared.
@@ -132,24 +133,24 @@ class CisuSplash {
 
                     //Rendering all the shadow, include the IconImage itself
                     for (i in 0..listOfTint.size - 1) {
-                        //AnimatedVisibility(visible = listOfVisible.get(i)) {
                         Icon(
                             modifier = Modifier.size(animateDpAsState(targetValue = listOfDp.get(i)).value),
                             painter = painterResource(id = iconShadow),
                             contentDescription = "My ICON",
                             tint = listOfTint.get(i)
                         )
-                        //}
+
 
                         if (i == listOfTint.size - 1) {
-                            Image(
-                                modifier = Modifier.size(defaultSize),
-                                painter = painterResource(id = logo),
-                                contentDescription = "My Logo"
-                            )
                             isRendered = true
                         }
                     }
+
+                    Image(
+                        modifier = Modifier.size(defaultSize),
+                        painter = painterResource(id = logo),
+                        contentDescription = "My Logo"
+                    )
                 }
 
 
