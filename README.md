@@ -71,6 +71,9 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 ### 1. [Cisu Splash Screen](https://github.com/fahmirumagutawan/Cisu-Jetpack-Component/blob/master/docs/CisuSplash.md) ✨
 - Cisu Splash Screen is a composable to help you instantly make your own splash screen as easy as writing few lines of code.
 
+### 2. [Cisu Surface With Bottom Navigation Bar](https://github.com/fahmirumagutawan/Cisu-Jetpack-Component/blob/master/docs/CisuSurface.md)
+- Have you ever feeling that making page with bottom navigation bar is kind of frustating. So you have to try this function then. 
+
 # Contact Me
 If you want to discuss about business, or maybe have a critic and advice. Feel free to be messaged everytime-everywhere. 
 
