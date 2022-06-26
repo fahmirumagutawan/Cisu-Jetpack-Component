@@ -61,5 +61,6 @@ dependencies {
 
     //local path
     implementation project(path: ':CisuSplash')
+    implementation project(path: ':CisuSurfaceWithBottomMenu')
     //implementation 'com.github.fahmirumagutawan:Cisu-Jetpack-Component:1.0.1'
 }

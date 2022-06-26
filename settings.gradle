@@ -18,3 +18,4 @@ rootProject.name = "Cisu Jetpack-Component"
 include ':app'
 include ':CisuSplash'
 
+include ':CisuSurfaceWithBottomMenu'
