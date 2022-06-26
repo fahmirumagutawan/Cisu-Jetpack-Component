@@ -66,7 +66,7 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
     > You can find `cisu_version` on Jitpack Badge above, or on our release tag.
 
 # Documentation
-aa
+
 # Contact Me
 If you want to discuss about business, or maybe have a critic and advice. Feel free to be messaged everytime-everywhere. 
 
