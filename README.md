@@ -1,4 +1,5 @@
 
+
 ![Release](https://jitpack.io/v/fahmirumagutawan/Cisu-Jetpack-Component.svg)
 # Welcome to Cisu Jetpack-Component
 <p align="Center">
@@ -67,8 +68,8 @@ Before you able to accessing `Cisu`, you have to know that we are using `Jitpack
 
 # Documentation
 
-1. [Cisu Splash Screen](https://github.com/fahmirumagutawan/Cisu-Jetpack-Component/blob/master/docs/CisuSplash.md)
-	Cisu Splash Screen is a composable to help you instantly make your own splash screen as easy as writing few lines of code.
+### 1. [Cisu Splash Screen](https://github.com/fahmirumagutawan/Cisu-Jetpack-Component/blob/master/docs/CisuSplash.md)
+- Cisu Splash Screen is a composable to help you instantly make your own splash screen as easy as writing few lines of code.
 
 # Contact Me
 If you want to discuss about business, or maybe have a critic and advice. Feel free to be messaged everytime-everywhere. 
