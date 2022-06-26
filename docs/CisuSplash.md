@@ -10,7 +10,7 @@
     val splash = CisuSplash()
                     .(IMPLEMENT SOME COMMAND)
                     .(IMPLEMENT SOME COMMAND)
-                    ...
+                    ..
     
     val mySplash = splash.build(myCoroutineScope)
 ```
