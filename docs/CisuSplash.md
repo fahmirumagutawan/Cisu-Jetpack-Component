@@ -6,9 +6,11 @@
 
 -   ### Default Implementation
 ```kotlin
+    val scope = rememberCoroutineScope()
     val splash = CisuSplash()
                     .(IMPLEMENT SOME COMMAND)
                     .(IMPLEMENT SOME COMMAND)
+                    ...
     
     val mySplash = splash.build(myCoroutineScope)
 ```
