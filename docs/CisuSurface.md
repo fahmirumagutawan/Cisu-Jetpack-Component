@@ -46,7 +46,7 @@
 	| 2 | `bottomMenuColor` | `Color` | Set you bottom navigation menu color | `Color.White` |
 	| 3 | `bottomMenuIconPadding` | `Dp` | To make this clear, padding to be set is between `Icon` and `Icon Shadow` | `16.dp` |
 	| 4 | `bottomMenuItemDefaultColor` | `Color` | Set the icon color when the state is `unselected (false)` | `Color.Black` |
-	| 5 | `bottomMenuItemClickedColor` | `Color` | Set the icon color when the state is `secelted (true)` | `Color.Gray` |
+	| 5 | `bottomMenuItemClickedColor` | `Color` | Set the icon color when the state is `selected (true)` | `Color.Gray` |
 	| 6 | `bottomMenuItemHeightDefault` | `Dp` | Set the icon height when the state is `unselected (false)` | `24.dp` |
 	| 7 | `bottomMenuItemHeightClicked` | `Dp` | Set the icon height when the state is `selected (true)` | `48.dp` |
 	| 8 | `listOfBottomMenuItem` | `List<CisuSurfaceBottomItem>` | If you want to make this surface has bottom navigation menu, then you should call this parameter. (Sample code at above) | `null` |
