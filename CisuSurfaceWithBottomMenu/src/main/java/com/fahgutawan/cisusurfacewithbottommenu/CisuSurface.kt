@@ -34,7 +34,7 @@ fun CisuSurface(
 ) {
     /**INSTANTIATE SECTION*/
     val listOfIconId = ArrayList<Int>()
-    val listOfOnClick = ArrayList<Unit>()
+    val listOfOnClick = ArrayList<() -> Unit>()
     val listOfState = ArrayList<MutableState<Boolean>>()
     val tmpDp = ArrayList<Dp>()
     val listOfAnimateDp = ArrayList<State<Dp>>()
@@ -47,17 +47,16 @@ fun CisuSurface(
     if (listOfBottomMenuItem != null) {
         listOfBottomMenuItem.forEach { menuItem ->
             listOfIconId.add(menuItem.iconId)
-            listOfOnClick.add(menuItem.onClick())
+            listOfOnClick.add({ menuItem.onClick() })
             listOfState.add(menuItem.state)
             tmpDp.add(bottomMenuItemHeightDefault)
         }
 
         /**Run Listener for DP Animate & Instantiate our listOfAnimateDp*/
         for (i in 0..tmpDp.size - 1) {
-            if (listOfState.get(i).value == true) tmpDp.set(
-                i,
-                bottomMenuItemHeightClicked
-            ) else tmpDp.set(i, bottomMenuItemHeightDefault)
+            if (listOfState.get(i).value == true) tmpDp.set(i, bottomMenuItemHeightClicked)
+            else tmpDp.set(i, bottomMenuItemHeightDefault)
+
             listOfAnimateDp.add(animateDpAsState(targetValue = tmpDp.get(i)))
         }
     }
@@ -71,46 +70,52 @@ fun CisuSurface(
         }
 
         /**Bottom Navigation Menu here*/
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(bottomMenuColor)
-                .height(bottomMenuHeight)
-        )
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = (bottomMenuHeight.value / 16).dp),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            for (i in 0..listOfIconId.size - 1) {
-                Box(
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .background(color = bottomMenuColor),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        modifier = Modifier
-                            .padding(bottomMenuIconPadding)
-                            .size(listOfAnimateDp.get(i).value),
-                        painter = painterResource(id = listOfIconId.get(i)),
-                        contentDescription = "Bottom Menu Icon",
-                        tint = if (listOfState.get(i).value) bottomMenuItemClickedColor else bottomMenuItemDefaultColor
-                    )
+        if (listOfBottomMenuItem != null) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(bottomMenuColor)
+                    .height(bottomMenuHeight)
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = (bottomMenuHeight.value / 16).dp),
+                verticalAlignment = Alignment.Bottom,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                for (i in 0..listOfIconId.size - 1) {
                     Box(
                         modifier = Modifier
                             .clip(CircleShape)
-                            .size(bottomMenuItemHeightDefault * 2)
-                            .clickable(
-                                interactionSource = MutableInteractionSource(),
-                                indication = rememberRipple(bounded = true, color = Color.Black),
-                                onClick = {
-                                    resetState()
-                                    listOfState.get(i).value = true
-                                })
-                    )
+                            .background(color = bottomMenuColor),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier
+                                .padding(bottomMenuIconPadding)
+                                .size(listOfAnimateDp.get(i).value),
+                            painter = painterResource(id = listOfIconId.get(i)),
+                            contentDescription = "Bottom Menu Icon",
+                            tint = if (listOfState.get(i).value) bottomMenuItemClickedColor else bottomMenuItemDefaultColor
+                        )
+                        Box(
+                            modifier = Modifier
+                                .clip(CircleShape)
+                                .size(bottomMenuItemHeightDefault * 2)
+                                .clickable(
+                                    interactionSource = MutableInteractionSource(),
+                                    indication = rememberRipple(
+                                        bounded = true,
+                                        color = Color.Black
+                                    ),
+                                    onClick = {
+                                        resetState()
+                                        listOfState.get(i).value = true
+                                        listOfBottomMenuItem.get(i).onClick()
+                                    })
+                        )
+                    }
                 }
             }
         }

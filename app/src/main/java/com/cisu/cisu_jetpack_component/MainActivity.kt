@@ -10,6 +10,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.cisu.cisu_jetpack_component.cisu_surface.MySurfaceActivity
 import com.cisu.cisu_jetpack_component.ui.theme.CisuJetpackComponentTheme
 import com.fahgutawan.cisusurfacewithbottommenu.CisuSurfaceBottomItem
 import com.fahgutawan.cisusurfacewithbottommenu.CisuSurface
@@ -33,42 +34,7 @@ class MainActivity : ComponentActivity() {
 //                        .build(rememberCoroutineScope())
 
                     /**CISU Surface*/
-                    val listItem = listOf(
-                        CisuSurfaceBottomItem(
-                            iconId = R.drawable.ic_test_botmenuitem,
-                            onClick = {
-
-                            },
-                            state = remember { mutableStateOf(true) }
-                        ),
-                        CisuSurfaceBottomItem(
-                            iconId = R.drawable.ic_test_botmenuitem,
-                            onClick = {
-
-                            },
-                            state = remember { mutableStateOf(false) }
-                        ),
-                        CisuSurfaceBottomItem(
-                            iconId = R.drawable.ic_test_botmenuitem,
-                            onClick = {
-
-                            },
-                            state = remember { mutableStateOf(false) }
-                        ),
-                        CisuSurfaceBottomItem(
-                            iconId = R.drawable.ic_test_botmenuitem,
-                            onClick = {
-
-                            },
-                            state = remember { mutableStateOf(false) }
-                        )
-                    )
-                    CisuSurface(
-                        bottomMenuColor = Color(0xFFF7F2A8),
-                        listOfBottomMenuItem = listItem
-                    ) {
-
-                    }
+                    MySurfaceActivity()
                 }
             }
         }
