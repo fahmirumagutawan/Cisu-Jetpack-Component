@@ -54,7 +54,7 @@
 
 - ### Parameter Table of `Cisu Surface Bottom Item`
 	| No | Parameter Name | Data Type | Explanation |
-	|--|--|--|--|--|
+	|--|--|--|--|
 	| 1 | `IconId` | `Int` | This parameter is used to set each of your bottom menu item |
 	| 2 | `state` | `MutableState<Boolean>` | We recommend you to use `remember` to make sure no bugs happen, or you can just declare you state from `ViewModel` instead |
 	| 3 | `onClick` | `() -> Unit` | To set action for each of your bottom navigation item |
