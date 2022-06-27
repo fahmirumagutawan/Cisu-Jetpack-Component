@@ -28,7 +28,7 @@
 	- #### After that, you can call `Cisu Surface` like a normal composable, and then put your `listOfMenu` as parameter
 	```kotlin
 		CisuSurface(  
-		    bottomMenuColor = Color(0xFFA7BDFF),  
+		    	bottomMenuColor = Color(0xFFA7BDFF),  
 			listOfBottomMenuItem = listOfMenu,
 			/**STILL LOT OF PARAMETER THAT YOU CAN IMPLEMENT HERE*/
 		) {  
