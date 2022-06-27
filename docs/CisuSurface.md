@@ -49,7 +49,7 @@
 	| 5 | `bottomMenuItemClickedColor` | `Color` | Set the icon color when the state is `selected (true)` | `Color.Gray` |
 	| 6 | `bottomMenuItemHeightDefault` | `Dp` | Set the icon height when the state is `unselected (false)` | `24.dp` |
 	| 7 | `bottomMenuItemHeightClicked` | `Dp` | Set the icon height when the state is `selected (true)` | `48.dp` |
-	| 8 | `listOfBottomMenuItem` | `List<CisuSurfaceBottomItem>` | If you want to make this surface has bottom navigation menu, then you should call this parameter. (Sample code at above) | `null` |
+	| 8 | `listOfBottomMenuItem` | `List<CisuSurfaceBottomItem>` | If you want to make this surface has bottom navigation menu, then you should call this parameter. (Sample code above) | `null` |
 	| 9 | `content` | `() -> @Composable Unit` | As I mentioned before, this surface is kind of similar with regular surface. So you can implement any composable | No Default |
 
 - ### Parameter Table of `Cisu Surface Bottom Item`
